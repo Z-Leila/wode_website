@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>首页</title>
+    <meta name="keywords" content=""/>
+    <meta name="description" content=""/>
+    <meta name="renderer" content="webkit">
+    <meta http-equiv="x-ua-compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0,user-scalable=no">
+    <link rel="stylesheet" href="./css/common.css"/>
+    <link rel="stylesheet" href="./css/index.master.css"/>
+    <script type="text/javascript" src="./js/vendor/jquery-1.10.2.min.js"></script>
+    <script type="text/javascript" src="./js/app/index.js"></script>
+    <link rel="stylesheet" href="./css/animate.min.css"/>
+    <!--[if lte IE 9]>
+    <script type="text/javascript" src="./js/vendor/respond.min.js"></script>
+    <![endif]-->
+
+</head>
+<body>
+  <!-- loading -->
+  <div id="loading">
+    <div class="content" class="section">
+      <div class="loading-pic">
+        <img src="./images/loading.png" alt="">
+      </div>
+      <div class="loading-text">
+        <div class="percent"><span>0%</span></div>
+        <div class="percent-text">
+          <p>LODING ...... <br> BACON CLUBHOUSE</p>
+        </div>
+      </div>
+    </div>
+  </div>
+    <!--header-->
+  <div id="header">
+    <div class="hd-inner">
+      <ul>
+        <li class="active"><a href="index.html">认识wode</a></li>
+        <li><a href="world.html">wode世界</a></li>
+        <li><a href="food.html">wode食材</a></li>
+        <li><a href="activity.html">wode活动</a></li>
+        <li><a href="scenes.html">wode幕后</a></li>
+        <li><a href="salon.html">私家烘焙沙龙</a></li>
+        <li><a href="data.html">wode资料</a></li>
+        <li><a href="cooperation.html">合作区域</a></li>
+        <li><a href="store.html">门店</a></li>
+      </ul>
+    </div>
+	</div>
+
+	<!--主体内容-->
+    <div class="bd-content">
+      <div id="know-wode">
+        <div class="know-con down">
+          <img src="./images/h1.png" alt="">
+        </div>
+      </div>
+
+    </div>
+
+
+</body>
+<script type="text/javascript" src="./js/vendor/preloadjs-0.6.1.min.js"></script>
+<script>
+    $(function () {
+        // var musicConfig = new createjs.PlayPropsConfig().set({interrupt: createjs.Sound.INTERRUPT_ANY, loop: -1});
+        // $('body').one('touchstart', function () {
+
+        // });
+
+        function loadImage() {
+            var preload = new createjs.LoadQueue();
+            preload.installPlugin(createjs.Sound);
+            preload.on("complete", handleComplete);
+            preload.on("progress", handleOverallProgress);
+            preload.loadFile("/images/bg.jpg");
+            preload.loadFile("/images/h1.png");
+            // preload.loadFile("/images/shine.png");
+            // preload.loadFile("/assets/shcoolseason/images/but-bg.jpg");
+            // preload.loadFile("/assets/shcoolseason/images/common-btn.png");
+            // preload.loadFile({id: "sound", src: "http://source.manro.com.cn/schoolsound.mp3"});
+        }
+        function handleComplete(event) {
+            setTimeout(function () {
+                $('#loading').fadeOut();
+                $('.bd-content').show();
+                // createjs.Sound.play("sound", musicConfig);
+            }, 1500)
+
+//        $('#loading').hide();
+
+//        var imgLoad = new Image();
+//        imgLoad.src = '/assets/shcoolseason/images/bg1.gif';
+//        imgLoad.onload = function(){
+//            startBefore();
+//        }
+
+
+        }
+        function handleOverallProgress(event) {
+            $('.percent span').text(parseInt(event.progress * 100) + "%")
+            setTimeout(function () {
+                $('.loading-text .percent-text').show();
+                $('.loading-text .percent-text').addClass('animated fadeInUp');
+            }, 300);
+
+        }
+        loadImage();
+    })
+</script>
+</html>

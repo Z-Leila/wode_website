@@ -1,0 +1,23 @@
+#header{
+  position: fixed;
+  left: 35px;
+  bottom: 180px;
+  z-index: 1;
+  .hd-inner{
+    padding: 20px;
+    a{
+      padding: 7px;
+      color: #fff;
+      letter-spacing: 1.5px;
+      transition: color .3s ease;
+    }
+    a:hover{
+      color: #e73828;
+    }
+    li.active{
+      a{
+        color: #e73828;
+      }
+    }
+  }
+}
